@@ -16,17 +16,6 @@ public class SampleAPIForPocTest {
         RestAssured.baseURI = BASE_URL;
     }
 
-    @Test
-    public void testGetPet() {
-        given()
-                .when()
-                .get("/pet/{petId}", 1)
-                .then()
-                .statusCode(200)
-                .contentType(ContentType.JSON)
-                .body("name", equalTo("doggie"))
-                .body("status", equalTo("available"));
-    }
 
     @Test
     public void testAddPet() {
@@ -44,4 +33,17 @@ public class SampleAPIForPocTest {
                 .body("name", equalTo("myPet"))
                 .body("status", equalTo("available"));
     }
+    @Test
+    public void testGetPet() {
+        given()
+                .when()
+                .get("/pet/{petId}", 10)
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .body("name", equalTo("myPet"))
+                .body("status", equalTo("available"));
+    }
+
+
 }
