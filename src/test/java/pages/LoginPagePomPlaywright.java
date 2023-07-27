@@ -25,5 +25,4 @@ public class LoginPagePomPlaywright {
         password.fill("secret_sauce");
         loginButton.click();
     }
-
 }

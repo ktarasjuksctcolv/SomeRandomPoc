@@ -30,7 +30,6 @@ public class SamplePlaywrightApiPocTest {
     private static APIRequestContext request;
     private static long startTime;
 
-
     @AfterAll
     public static void tearDown() {
         long endTime = System.currentTimeMillis();

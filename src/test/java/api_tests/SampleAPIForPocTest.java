@@ -54,6 +54,4 @@ public class SampleAPIForPocTest {
                 .body("name", equalTo("myPet"))
                 .body("status", equalTo("available"));
     }
-
-
 }

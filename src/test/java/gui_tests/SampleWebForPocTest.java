@@ -2,7 +2,6 @@ package gui_tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.LoginPagePom;
@@ -36,7 +35,4 @@ public class SampleWebForPocTest {
         productPage.goToCart();
         productPage.validatePrice("$15.99");
     }
-
-
-
 }

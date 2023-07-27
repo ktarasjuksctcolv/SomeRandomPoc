@@ -36,14 +36,12 @@ public class SamplePlaywrightForPocTest {
         LoginPagePomPlaywright loginPagePomPlaywright = new LoginPagePomPlaywright(page);
         ProductPagePlaywright productPagePlaywright = new ProductPagePlaywright(page);
 
-
         page.navigate("https://www.saucedemo.com/");
         loginPagePomPlaywright.login();
         productPagePlaywright.selectProduct("red t-shirt");
         productPagePlaywright.selectItemFromBurgerMenu("all items");
         productPagePlaywright.goToCart();
         productPagePlaywright.validatePrice("$15.99");
-
         browser.close();
     }
 }
