@@ -10,7 +10,9 @@ import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.Playwright;
 
 import com.microsoft.playwright.options.RequestOptions;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -26,9 +28,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class SamplePlaywrightApiPocTest {
     private static Playwright playwright;
     private static APIRequestContext request;
+    private static long startTime;
+
+
+    @AfterAll
+    public static void tearDown() {
+        long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println("Total time of tests " + totalTime);;
+    }
 
     @BeforeAll
     public static void setup() {
+        startTime = System.currentTimeMillis();
+
         playwright = Playwright.create();
         request = playwright.request().newContext(new APIRequest.NewContextOptions()
                 // All requests we send go to this API endpoint.

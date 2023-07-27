@@ -2,6 +2,7 @@ package api_tests;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -9,13 +10,22 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class SampleAPIForPocTest {
+
+    private static long startTime;
     private static final String BASE_URL = "https://petstore.swagger.io/v2";
 
     @BeforeAll
     public static void setup() {
+        startTime = System.currentTimeMillis();
         RestAssured.baseURI = BASE_URL;
     }
 
+    @AfterAll
+    public static void tearDown() {
+        long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println("Total time of tests " + totalTime);;
+    }
 
     @Test
     public void testAddPet() {
